@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Special Calculator Functions</title>
+  <style>
+    
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+h3 {
+  text-align: center;
+  color: #222;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.conversions, .rectangle, .triangle, .square, .quadratic {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+details {
+  background-color: #e9e9e9;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 8px;
+  outline: none;
+}
+
+summary:hover {
+  background-color: #dcdcdc;
+  border-radius: 4px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+input[type="number"] {
+  width: 60%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+input[type="number"]:read-only {
+  background-color: #f0f0f0;
+}
+
+input[type="button"] {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+input[type="button"]:hover {
+  background-color: #333;
+}
+
+br {
+  line-height: 1.5;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="conversions">
+      <div class="temp_fahreinheit">
+    <h3>Temperature and Fahrenheit</h3>
+        <details>
+      <summary>Temp(°C) to Fahrenheit (F)</summary>
+      <form action="">
+        Temperature: <input type="number" name="temp"  /> <br /><br>
+        Fahrenheit: <input type="number" name="fahrenheit" readonly> <br /><br>
+        <input type="button" value="CONVERT" onclick="fahrenheit.value=eval((9*temp.value)/5 + 32)">
+      </form>
+    </details>
+    <details>
+      <summary>Fahrenheit (F) to Temp(°C)</summary>
+      <form action="">
+        Fahrenheit: <input type="number" name="fahrenheit" > <br /> <br>
+        Temperature: <input type="number" name="temp" readonly /> <br /> <br>
+        
+        <input type="button" value="CONVERT" onclick="temp.value=eval((fahrenheit.value - 32)*5/9)">
+      </form>
+    </details>
+  </div>
+  <div class="kgPounds">
+    <h3>Kilogram and Pounds Conversion</h3>
+    <details>
+      <summary>
+        Kg to Pounds
+      </summary>
+      <form action="">
+        Kilogram: <input type="number" id="kg"> <br> <br>
+        Pounds: <input type="number" id="pound" readonly> <br> <br>
+        <input type="button" value="CONVERT" onclick="pound.value= (Number(kg.value) * 2.2046).toFixed(2)">
+      </form>
+    </details>
+    
+        <details>
+      <summary>
+        Pounds (Lbs) to Kilograms (Kgs)
+      </summary> <br>
+      <form action="">
+        Lbs: <input type="number" id="lbs" placeholder="pounds"> <br> <br>
+        Kgs: <input type="number" id="kgs" readonly> <br> <br>
+        <input type="button" value="CONVERT" onclick="kgs.value= (Number(lbs.value) / 2.2046).toFixed(2)">
+      </form>
+    </details>
+  </div>
+  </div>
+  <div class="rectangle">
+    <h3>Rectangle</h3>
+    <details>
+      <summary>Area</summary> <br>
+      <form action="">
+        Length: <input type="number" name="Reclength"> <br /><br>
+        Width: <input type="number" name="Recwidth"> <br /><br>
+        Area: <input type="number" name="area" readonly> <br> <br>
+        <input type="button" value="CALCULATE" onclick="area.value = (Reclength.value * Recwidth.value)"> 
+      </form>
+    </details>
+    <details>
+      <summary>Perimeter</summary>
+        <form action="">
+        Length: <input type="number" name="Rectanglelength"> <br /><br>
+        Width: <input type="number" name="Rectanglewidth"> <br /><br>
+        Perimeter: <input type="number" name="Recperimeter" readonly> <br> <br>
+        <input type="button" value="CALCULATE" onclick="Recperimeter.value=(2*(parseFloat(Rectanglelength.value) + parseFloat(Rectanglewidth.value)))"> 
+      </form>
+    </details>
+  </div>
+  <div class="triangle">
+    <h3>Triangle</h3>
+        <details>
+      <summary>Area</summary> <br>
+      <form action="">
+        Base: <input type="number" id="tBase"> <br /> <br>
+        Height: <input type="number" id="tHeight"> <br /> <br>
+        
+        Area: <input type="number" name="tArea" readonly> <br /> <br>
+        <input type="button" value="CALCULATE" onclick="tArea.value= 0.5*tBase.value*tHeight.value">
+      </form>
+    </details>
+    <details>
+      <summary>Perimeter</summary> <br>
+      <form action="">
+        side 1: <input type="number" id="s1"> <br /> <br>
+        side 2: <input type="number" id="s2"> <br /> <br>
+        side 3: <input type="number" id="s3"> <br /> <br>
+        Perimeter: <input type="number" name="tPer" readonly> <br /> <br>
+        <input type="button" value="CALCULATE" onclick="tPer.value=(Number(s1.value) + Number(s2.value) + Number(s3.value))">
+      </form>
+    </details>
+  </div>
+  <div class="square">
+    <h3>Square</h3>
+        <details>
+      <summary>Area</summary> <br>
+      <form action="">
+        Length: <input type="number" name="length"> <br> <br>
+        Area: <input type="number" name="area" readonly> <br> <br>
+        <input type="button" value="CALCULATE" onclick="area.value=length.value*length.value">
+      </form>
+    </details>
+    <details>
+      <summary>Perimeter</summary> <br>
+        <form action="">
+        Length: <input type="number" name="length"> <br> <br>
+        Perimeter: <input type="number" name="perimeter" readonly> <br> <br>
+        <input type="button" value="CALCULATE" onclick="perimeter.value=length.value*4">
+      </form>
+    </details>
+  </div>
+  
+  <div class="quadratic">
+    <h3>Quadratic Equation Solver</h3>
+    <details>
+      <summary>
+        Solve Quadratic 
+      </summary>
+    a: <input type="number" id="a"><br><br>
+    
+    b: <input type="number" id="b"><br><br>
+    
+    c: <input type="number" id="c"><br><br>
+    
+    x1: <input type="number" id="x1">
+    <input type="button" value="Solve x1" onclick="x1.value=(Number(-b.value) + Math.sqrt(Number(b.value*b.value)-Number(4*a.value*c.value)))/(2*a.value)">
+    <br><br>
+    
+    x2: <input type="number" id="x2">
+        <input type="button" value="Solve x2" onclick="x2.value=(Number(-b.value) - Math.sqrt(Number(b.value*b.value)-Number(4*a.value*c.value)))/(2*a.value)">
+        <br><br>
+        </details>
+  </div>
+  
+</body>
+
+</html>
