@@ -11,7 +11,7 @@
   }
     .container{
       max-width: 100%;
-      max-height: 100vh;
+      height: 100vh;
       display:flex;
       justify-content :center;
       align-items: center;
@@ -60,6 +60,13 @@
     #special{
       background: navy;
     }
+   #special_fxn input{
+      width:100%;
+      max-height: 50px;
+      padding:5px;
+      border-radius:10px;
+      background:grey;
+    }
     
   </style>
 </head>
@@ -98,12 +105,16 @@
       <input type="button" value="+" onclick = "display.value += '+' " id="special">
     </div>
     <div class="buttons">
-       <input type="button" value="00" onclick = "display.value += '00' ">
+       <input type="button" value="√" onclick = "display.value = Math.sqrt(display.value).toFixed(4) " style="background: purple  ">
       <input type="button" value="0" onclick = "display.value += '0' ">
         <input type="button" value="." onclick = "display.value += '.' ">
       <input type="button" value="=" onclick = "display.value = eval(display.value) " style="background: green">
     </div>
+    <div class="buttons" id="special_fxn">
+          <input type="button" onclick="location.href='special_functions.html'" value="Special Functions">
     
+    </div>
+
   </form>
   </div>
   </div>
